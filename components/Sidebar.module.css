@@ -1,0 +1,297 @@
+/* ============================================================
+   Sidebar.module.css — MediStore Navigation
+   ============================================================ */
+
+/* ---- DESKTOP SIDEBAR ---- */
+.sidebar {
+  width: var(--sidebar-w);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ---- BRAND ---- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.logoMark {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent), #00c9b1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.brandName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+}
+
+/* ---- NAV ---- */
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navLabel {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-faint);
+  padding: 0 12px;
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
+.navLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background var(--transition), color var(--transition);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.navLink.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.navIcon {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activeDot {
+  margin-left: auto;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+/* ---- FOOTER ---- */
+.footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.themeToggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  width: 100%;
+  text-align: left;
+}
+.themeToggle:hover { background: var(--surface-2); color: var(--text); }
+
+.themeIconWrap {
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: 1px solid var(--danger-dim);
+  color: var(--danger);
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background var(--transition);
+  width: 100%;
+}
+.logoutBtn:hover { background: var(--danger-dim); }
+
+/* ---- ICON BUTTON ---- */
+.iconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.iconBtn:hover { background: var(--surface-2); color: var(--text); }
+
+/* ---- MOBILE TOP BAR ---- */
+.mobileTopBar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 56px;
+  padding: 0 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileBrand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logoMarkSm {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, var(--accent), #00c9b1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brandNameSm {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+/* ---- MOBILE DRAWER ---- */
+.drawerOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 200;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s ease;
+}
+
+.drawer {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: min(300px, 85vw);
+  background: var(--surface);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.25s cubic-bezier(0.4,0,0.2,1);
+  overflow-y: auto;
+}
+
+/* ---- MOBILE BOTTOM BAR ---- */
+.bottomBar {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: 60px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 0 8px;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+.tabItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  flex: 1;
+  color: var(--text-faint);
+  text-decoration: none;
+  font-size: 0.625rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color var(--transition);
+  padding: 6px 4px;
+  border-radius: var(--radius-sm);
+}
+.tabItem:hover { color: var(--text-muted); }
+.tabItem.tabActive { color: var(--accent); }
+
+.tabLabel { line-height: 1; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .sidebar    { display: none; }
+  .mobileTopBar { display: flex; }
+  .drawerOverlay { display: block; }
+  .bottomBar  { display: flex; }
+}

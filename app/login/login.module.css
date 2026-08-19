@@ -1,0 +1,167 @@
+/* ============================================================
+   login.module.css — MediStore Auth
+   ============================================================ */
+
+.loginPage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* ---- LEFT PANEL ---- */
+.leftPanel {
+  background: linear-gradient(160deg, #004d47 0%, #006d63 40%, #00a896 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 56px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leftPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(0,0,0,0.2) 0%, transparent 50%);
+}
+
+.leftGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.leftContent {
+  position: relative;
+  z-index: 1;
+}
+
+.leftBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 99px;
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.leftTitle {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.leftTitle span {
+  opacity: 0.7;
+}
+
+.leftDesc {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 340px;
+  margin-bottom: 40px;
+}
+
+.statsRow {
+  display: flex;
+  gap: 32px;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statNum {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.03em;
+}
+
+.statDesc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ---- RIGHT PANEL ---- */
+.rightPanel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 56px;
+  background: var(--bg);
+}
+
+.formCard {
+  width: 100%;
+  max-width: 400px;
+}
+
+.formTopBrand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.logoMark {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--accent), #00c9b1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+.brandName {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.formTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  margin-bottom: 6px;
+}
+
+.formSubtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .loginPage { grid-template-columns: 1fr; }
+  .leftPanel  { display: none; }
+  .rightPanel { padding: 40px 24px; }
+}

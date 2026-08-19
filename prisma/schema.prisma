@@ -1,0 +1,70 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique
+  password_hash String
+  role          String   @default("ADMIN")
+  createdAt     DateTime @default(now())
+}
+
+model Medicine {
+  id               Int        @id @default(autoincrement())
+  name             String
+  batch_number     String
+  manufacturer     String
+  manufactured_date DateTime
+  expiry_date      DateTime
+  quantity         Int
+  unit_price       Float
+  category         String?
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+  saleItems        SaleItem[]
+}
+
+model Customer {
+  id            Int      @id @default(autoincrement())
+  mobile_number String   @unique
+  name          String
+  sms_consent   Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  sales         Sale[]
+}
+
+model Sale {
+  id          Int        @id @default(autoincrement())
+  customer_id Int
+  customer    Customer   @relation(fields: [customer_id], references: [id])
+  total_amount Float
+  sale_date   DateTime   @default(now())
+  createdAt   DateTime   @default(now())
+  saleItems   SaleItem[]
+}
+
+model SaleItem {
+  id                 Int      @id @default(autoincrement())
+  sale_id            Int
+  sale               Sale     @relation(fields: [sale_id], references: [id])
+  medicine_id        Int
+  medicine           Medicine @relation(fields: [medicine_id], references: [id])
+  quantity           Int
+  unit_price_at_sale Float
+}
+
+model Notification {
+  id              Int      @id @default(autoincrement())
+  recipient_type  String   // "ADMIN" or "CUSTOMER"
+  recipient_mobile String?
+  message_content String
+  status          String   @default("PENDING") // "SENT", "FAILED"
+  sent_at         DateTime?
+  createdAt       DateTime @default(now())
+}
